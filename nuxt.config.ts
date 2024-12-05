@@ -4,4 +4,18 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     future: { compatibilityVersion: 4 },
     modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/supabase'],
+    runtimeConfig: {
+        public: {
+            supabaseKey: '',
+            supabaseUrl: '',
+        },
+    },
+    supabase: {
+        redirect: true,
+        redirectOptions: {
+            login: '/login',
+            callback: '/confirm',
+            exclude: ['/', '/logout'],
+        },
+    },
 });
