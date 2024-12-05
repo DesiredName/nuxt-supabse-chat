@@ -13,4 +13,8 @@
 
 <script setup lang="ts">
     const user = useSupabaseUser();
+
+    definePageMeta({
+        layout: 'landing',
+    });
 </script>

@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: { enabled: true },
     future: { compatibilityVersion: 4 },
-    modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/supabase'],
+    modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/supabase', '@pinia/nuxt'],
     runtimeConfig: {
         public: {
             supabaseKey: '',
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         redirectOptions: {
             login: '/login',
             callback: '/confirm',
-            exclude: ['/', '/logout'],
+            exclude: ['/', '/logout', '/confirm'],
         },
     },
 });
