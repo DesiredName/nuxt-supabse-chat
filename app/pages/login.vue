@@ -30,6 +30,10 @@
         Provider,
     } from '@supabase/auth-js/dist/module/lib/types';
 
+    definePageMeta({
+        layout: 'login',
+    });
+
     const { auth } = useSupabaseClient();
     const email = ref<string>('');
 

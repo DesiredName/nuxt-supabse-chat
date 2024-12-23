@@ -6,6 +6,10 @@ export default defineNuxtConfig({
     modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/supabase', '@pinia/nuxt'],
     runtimeConfig: {
         public: {
+            app: {
+                name: 'ChatApp',
+                support_email: 'support@chatapp.com',
+            },
             supabaseKey: '',
             supabaseUrl: '',
         },
