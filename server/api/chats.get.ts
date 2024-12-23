@@ -1,5 +1,6 @@
 import { serverSupabaseClient } from '#supabase/server';
-import type { ChatEntry, Database } from '~~/types/database';
+import type { ChatEntry } from '~~/types/database.subtypes';
+import type { Database } from '~~/types/database.types';
 
 export type GetChatsListAPIResponse = {
     chats: ChatEntry[];

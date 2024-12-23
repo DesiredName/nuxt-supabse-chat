@@ -1,5 +1,5 @@
 import { get_chats_list } from '~/utils/chats.get';
-import type { ChatEntry } from '~~/types/database';
+import type { ChatEntry } from '~~/types/database.subtypes';
 
 export const useChatsStore = defineStore('chats_store', () => {
     // state
