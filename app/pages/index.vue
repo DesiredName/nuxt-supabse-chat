@@ -1,8 +1,11 @@
 <template>
     <div :class="$style.bckg">
-        <Navbar />
+        <LandingNavbar />
 
-        <section :id="SECTIONS_LIST.home.id" :class="$style.home">
+        <section
+            :id="SECTIONS_LIST.home.id"
+            :class="[$style.section, $style.home]"
+        >
             <div :class="$style['section-content']">
                 <div>
                     <h2 class="text-azure-100 font-bold text-6xl break-words">
@@ -35,59 +38,63 @@
 
         <section :id="SECTIONS_LIST.features.id" :class="$style.section">
             <div :class="$style['section-content']">
-                <div :class="$style.blocks">
-                    <div :class="$style.block">
-                        <div :class="$style['block-title']">
+                <div :class="$style.features">
+                    <div :class="$style.feature">
+                        <div :class="$style['feature-title']">
                             Fast & Reliable
                         </div>
 
-                        <div :class="$style['block-content']">
+                        <div :class="$style['feature-content']">
                             Experience lightning-fast message delivery with a
                             high level of reliability for your daily chats.
                         </div>
                     </div>
-                    <div :class="$style.block">
-                        <div :class="$style['block-title']">
+                    <div :class="$style.feature">
+                        <div :class="$style['feature-title']">
                             Easy Communication
                         </div>
 
-                        <div :class="$style['block-content']">
+                        <div :class="$style['feature-content']">
                             Find friends, join groups, share files and documents
                             - all in one user-friendly interface.
                         </div>
                     </div>
-                    <div :class="$style.block">
-                        <div :class="$style['block-title']">Security First</div>
+                    <div :class="$style.feature">
+                        <div :class="$style['feature-title']">
+                            Security First
+                        </div>
 
-                        <div :class="$style['block-content']">
+                        <div :class="$style['feature-content']">
                             End-to-end encryption ensures that your private
                             conversations stay just that – private.
                         </div>
                     </div>
-                    <div :class="$style.block">
-                        <div :class="$style['block-title']">
+                    <div :class="$style.feature">
+                        <div :class="$style['feature-title']">
                             Customizable Themes
                         </div>
 
-                        <div :class="$style['block-content']">
+                        <div :class="$style['feature-content']">
                             Make {{ app.name }} yours with fully customizable
                             themes and layouts to match your personal style.
                         </div>
                     </div>
-                    <div :class="$style.block">
-                        <div :class="$style['block-title']">Cross-Platform</div>
+                    <div :class="$style.feature">
+                        <div :class="$style['feature-title']">
+                            Cross-Platform
+                        </div>
 
-                        <div :class="$style['block-content']">
+                        <div :class="$style['feature-content']">
                             Chat on any device. We support all major platforms:
                             desktop, mobile, and web.
                         </div>
                     </div>
-                    <div :class="$style.block">
-                        <div :class="$style['block-title']">
+                    <div :class="$style.feature">
+                        <div :class="$style['feature-title']">
                             Seamless Integration
                         </div>
 
-                        <div :class="$style['block-content']">
+                        <div :class="$style['feature-content']">
                             Easily integrate with other apps and services,
                             making your workflow smoother and more efficient.
                         </div>
@@ -128,12 +135,6 @@
         @apply min-w-full h-[100svh] bg-slate-200;
     }
 
-    .home {
-        scroll-snap-align: start;
-
-        @apply min-w-full h-svh flex flex-col items-center justify-center bg-gradient-to-r from-azure-600 to-azure-400;
-    }
-
     .section {
         scroll-snap-align: start;
 
@@ -144,19 +145,25 @@
         @apply pt-16 min-w-full flex flex-col items-center justify-center px-4 md:px-16;
     }
 
-    .blocks {
+    .home {
+        scroll-snap-align: start;
+
+        @apply bg-gradient-to-r from-azure-600 to-azure-400;
+    }
+
+    .features {
         @apply grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4;
     }
 
-    .block {
+    .feature {
         @apply p-2 max-w-96 sm:px-4 sm:py-6 sm:border-2 sm:rounded-md sm:shadow-lg sm:shadow-slate-300;
     }
 
-    .block-title {
+    .feature-title {
         @apply text-azure-600 text-2xl text-center font-semibold;
     }
 
-    .block-content {
+    .feature-content {
         @apply text-gray-900 text-lg text-center mt-3;
     }
 
