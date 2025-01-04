@@ -55,6 +55,6 @@
 
 <style module>
     .nav {
-        @apply px-2 py-3 sticky top-[0px] min-h-min bg-azure-600;
+        @apply px-2 py-3 sticky top-[0px] h-12 bg-azure-600;
     }
 </style>

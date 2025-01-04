@@ -1,6 +1,8 @@
 <template>
     <div :class="$style.bckg">
-        <LandingNavbar />
+        <LandingNavbar v-if="$route.path === '/'" />
+
+        <RouterView />
 
         <section
             :id="SECTIONS_LIST.home.id"
@@ -23,6 +25,7 @@
                             color="green"
                             variant="sign"
                             label="Sign Up"
+                            to="login"
                         />
                         <UButton
                             class="py-4 px-6 font-semibold text-xl"
@@ -142,7 +145,7 @@
     }
 
     .section-content {
-        @apply pt-16 min-w-full flex flex-col items-center justify-center px-4 md:px-16;
+        @apply pt-12 min-w-full flex flex-col items-center justify-center px-4 md:px-16;
     }
 
     .home {
