@@ -9,6 +9,12 @@
         layout: 'landing',
     });
 
+    useHead({
+        htmlAttrs: {
+            style: 'scroll-snap-type: y mandatory;',
+        },
+    });
+
     const user = useSupabaseUser();
 
     const handle_navigate_next = () => {
@@ -26,7 +32,7 @@
         }
 
         if (user.value == null) {
-            navigateTo('/login');
+            navigateTo('/signin');
         } else {
             navigateTo('/chats');
         }

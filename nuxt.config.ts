@@ -4,6 +4,9 @@ export default defineNuxtConfig({
     devtools: { enabled: true },
     future: { compatibilityVersion: 4 },
     modules: ['@nuxt/ui', '@nuxt/eslint', '@nuxtjs/supabase', '@pinia/nuxt'],
+    router: {
+        options: { scrollBehaviorType: 'smooth' },
+    },
     runtimeConfig: {
         public: {
             app: {
@@ -17,9 +20,9 @@ export default defineNuxtConfig({
     supabase: {
         redirect: true,
         redirectOptions: {
-            login: '/login',
+            login: '/signin',
             callback: '/confirm',
-            exclude: ['/', '/logout', '/confirm'],
+            exclude: ['/', '/signup', '/logout', '/confirm'],
         },
     },
 });

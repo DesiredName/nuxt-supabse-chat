@@ -25,7 +25,7 @@
                             color="green"
                             variant="sign"
                             label="Sign Up"
-                            to="login"
+                            to="signup"
                         />
                         <UButton
                             class="py-4 px-6 font-semibold text-xl"
@@ -33,6 +33,7 @@
                             color="yellow"
                             variant="sign"
                             label="Sign In"
+                            to="signin"
                         />
                     </div>
                 </div>
@@ -128,14 +129,17 @@
     definePageMeta({
         layout: 'landing',
     });
+
+    useHead({
+        htmlAttrs: {
+            style: 'scroll-snap-type: y mandatory;',
+        },
+    });
 </script>
 
 <style module>
     .bckg {
-        overflow: scroll;
-        scroll-snap-type: y mandatory;
-
-        @apply min-w-full h-[100svh] bg-slate-200;
+        @apply min-w-full bg-slate-200;
     }
 
     .section {
