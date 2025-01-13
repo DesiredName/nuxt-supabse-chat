@@ -18,6 +18,7 @@ logs
 .fleet
 .idea
 coverage
+supabase
 
 # Local env files
 .env
