@@ -25,7 +25,7 @@
                             color="green"
                             variant="sign"
                             label="Sign Up"
-                            to="signup"
+                            to="signin"
                         />
                         <UButton
                             class="py-4 px-6 font-semibold text-xl"

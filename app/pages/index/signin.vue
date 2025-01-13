@@ -1,7 +1,27 @@
 <template>
-    <UModal :model-value="true" :fullscreen="true">
-        <div class="min-h-svh flex items-center">
-            <UContainer class="min-w-full md:min-w-80">
+    <UModal
+        :model-value="true"
+        :fullscreen="true"
+        :overlay="true"
+        @close="$router.push('/')"
+    >
+        <div class="min-h-svh flex items-center justify-center">
+            <UCard class="min-w-full md:min-w-80">
+                <template #header>
+                    <div class="flex items-center justify-between">
+                        <h1 class="text-center font-semibold text-lg">
+                            Welcome!
+                        </h1>
+                        <UButton
+                            color="gray"
+                            variant="ghost"
+                            icon="i-heroicons-x-mark-20-solid"
+                            class="-my-1"
+                            @click="$router.push('/')"
+                        />
+                    </div>
+                </template>
+
                 <UButton
                     color="white"
                     leading-icon="i-mdi-github"
@@ -50,7 +70,7 @@
                         One time password
                     </UButton>
                 </div>
-            </UContainer>
+            </UCard>
         </div>
     </UModal>
 </template>

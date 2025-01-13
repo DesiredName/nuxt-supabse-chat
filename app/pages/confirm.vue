@@ -9,12 +9,6 @@
         layout: 'landing',
     });
 
-    useHead({
-        htmlAttrs: {
-            style: 'scroll-snap-type: y mandatory;',
-        },
-    });
-
     const user = useSupabaseUser();
 
     const handle_navigate_next = () => {
