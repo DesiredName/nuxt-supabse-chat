@@ -70,13 +70,13 @@ export async function chats_get(
     const { data: chats, error } = await client.rpc('chats_get');
 
     if (error != null) {
-        throw new Error('Failed to fetch list of users chats', {
+        throw new Error('Failed to fetch list of user chats', {
             cause: error,
         });
     }
 
     if (chats == null) {
-        throw new Error('Failed to fetch list of users chats');
+        throw new Error('Failed to fetch list of user chats');
     }
 
     return chats as ChatEntry[];

@@ -6,7 +6,13 @@
         @close="$router.push('/')"
     >
         <div class="min-h-svh flex items-center justify-center">
-            <UCard class="min-w-full md:min-w-80">
+            <UCard
+                class="min-w-full md:min-w-80"
+                :ui="{
+                    ring: 'ring-0 md:ring-1',
+                    shadow: 'shadow-none md:shadow',
+                }"
+            >
                 <template #header>
                     <div class="flex items-center justify-between">
                         <h1 class="text-center font-semibold text-lg">
