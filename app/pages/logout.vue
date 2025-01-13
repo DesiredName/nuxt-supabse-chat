@@ -3,16 +3,13 @@
 </template>
 
 <script setup lang="ts">
+    import { useGlobalStore } from '#build/imports';
+
     const { auth } = useSupabaseClient();
-    const user = useState<unknown | null>('user_data', () => null);
-    const chats = useState<object[]>('chats_list', () => []);
+    const global_store = useGlobalStore();
 
-    user.value = null;
-    chats.value = [];
-
-    await auth
-        .signOut({
-            scope: 'global',
-        })
+    global_store
+        .clear()
+        .then(() => auth.signOut())
         .finally(() => navigateTo('/'));
 </script>

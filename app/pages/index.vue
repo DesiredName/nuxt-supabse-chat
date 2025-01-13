@@ -5,7 +5,7 @@
         <RouterView />
 
         <section
-            :id="SECTIONS_LIST.home.id"
+            :id="LANDING_SECTIONS_LIST.home.id"
             :class="[$style.section, $style.home]"
         >
             <div :class="$style['section-content']">
@@ -40,7 +40,10 @@
             </div>
         </section>
 
-        <section :id="SECTIONS_LIST.features.id" :class="$style.section">
+        <section
+            :id="LANDING_SECTIONS_LIST.features.id"
+            :class="$style.section"
+        >
             <div :class="$style['section-content']">
                 <div :class="$style.features">
                     <div :class="$style.feature">
@@ -107,7 +110,7 @@
             </div>
         </section>
 
-        <section :id="SECTIONS_LIST.footer.id" :class="$style.footer">
+        <section :id="LANDING_SECTIONS_LIST.footer.id" :class="$style.footer">
             <a class="text-azure-500" :href="`mailto:${app.support_email}`">
                 {{ app.support_email }}
             </a>
@@ -120,7 +123,7 @@
 </template>
 
 <script setup lang="ts">
-    import { SECTIONS_LIST } from '~/constants';
+    import { LANDING_SECTIONS_LIST } from '~/constants';
 
     const {
         public: { app },

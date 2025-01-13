@@ -67,7 +67,7 @@
                         :block="true"
                         @click="handle_otp_signin()"
                     >
-                        One time password
+                        Get Magic Link
                     </UButton>
                 </div>
             </UCard>

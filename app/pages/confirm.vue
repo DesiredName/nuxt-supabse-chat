@@ -28,7 +28,7 @@
         if (user.value == null) {
             navigateTo('/signin');
         } else {
-            navigateTo('/chats');
+            navigateTo('/content/empty');
         }
     };
 

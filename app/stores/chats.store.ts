@@ -6,6 +6,7 @@ export const useChatsStore = defineStore('chats_store', () => {
     const chats = useState<ChatEntry[]>('chats_list', () => []);
 
     // getters
+
     // actions
     async function refresh() {
         const { data, error } = await get_chats_list();
@@ -20,8 +21,13 @@ export const useChatsStore = defineStore('chats_store', () => {
         }
     }
 
+    async function clear() {
+        chats.value = [];
+    }
+
     return {
         chats,
         refresh,
+        clear,
     };
 });

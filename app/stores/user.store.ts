@@ -2,7 +2,7 @@ import type { User } from '@supabase/supabase-js';
 
 export const useUserStore = defineStore('user_store', () => {
     // state
-    const user = ref<User | null>(null);
+    const user = useState<User | null>('user_profile', () => null);
 
     // getters
     const user_name = computed(() => {
@@ -21,9 +21,14 @@ export const useUserStore = defineStore('user_store', () => {
         user.value = useSupabaseUser().value;
     }
 
+    async function clear() {
+        user.value = null;
+    }
+
     return {
         user,
         user_name,
         refresh,
+        clear,
     };
 });
