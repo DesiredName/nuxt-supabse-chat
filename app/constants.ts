@@ -1,3 +1,5 @@
+import type { HorizontalNavigationLink } from '#ui/types';
+
 export const LANDING_SECTIONS_LIST = {
     home: {
         id: 'sec-home',
@@ -13,27 +15,36 @@ export const LANDING_SECTIONS_LIST = {
     },
 };
 
-export const APP_SECTIONS_LIST = [
-    {
-        label: 'Profile',
-        avatar: {
-            src: 'https://avatars.githubusercontent.com/u/739984?v=4',
+export const APP_SECTIONS_LIST: HorizontalNavigationLink[][] = [
+    [
+        {
+            label: 'Profile',
+            avatar: {
+                src: 'https://avatars.githubusercontent.com/u/739984?v=4',
+            },
+            to: '/content/profile?id=me',
+            badge: 100,
         },
-        badge: 100,
-    },
-    {
-        label: 'Installation',
-        icon: 'i-heroicons-home',
-        to: '/getting-started/installation',
-    },
-    {
-        label: 'Horizontal Navigation',
-        icon: 'i-heroicons-chart-bar',
-        to: '/components/horizontal-navigation',
-    },
-    {
-        label: 'Command Palette',
-        icon: 'i-heroicons-command-line',
-        to: '/components/command-palette',
-    },
+        {
+            label: 'Friends',
+            icon: 'i-ph-users-four-thin',
+            to: '/content/friends',
+        },
+        {
+            label: 'Chats',
+            icon: 'i-ph-chats-fill',
+            to: '/content/chats',
+        },
+    ],
+    [
+        {
+            label: 'Help',
+            icon: 'i-heroicons-question-mark-circle',
+        },
+        {
+            label: 'Logout',
+            icon: 'i-uil-signout',
+            to: '/logout',
+        },
+    ],
 ];

@@ -2,16 +2,13 @@
     <NuxtErrorBoundary>
         <!-- Main content -->
         <div class="w-screen h-screen flex flex-col">
-            <div class="flex flex-row flex-grow-0 flex-shrink-0">
+            <div class="flex flex-row flex-grow-0">
                 <UHorizontalNavigation
                     :links="APP_SECTIONS_LIST"
                     class="border-b border-gray-200 dark:border-gray-800"
                 />
             </div>
-            <div class="flex flex-row justify-start">
-                <div class="min-w-min px-4 grow-0 shrink-0">
-                    <FriendsList />
-                </div>
+            <div class="flex flex-row flex-grow">
                 <div class="w-full grow-1">
                     <slot />
                 </div>
