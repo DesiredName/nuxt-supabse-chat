@@ -1,27 +1,11 @@
 import { serverSupabaseClient } from '#supabase/server';
 import type { ChatEntry } from '~~/types/database.subtypes';
 import type { Database } from '~~/types/database.types';
+import { chats_get } from './modules/chats';
 
-export type GetChatsListAPIResponse =
-    | {
-          error: Error;
-          data: null;
-      }
-    | {
-          error: null;
-          data: ChatEntry[];
-      };
-
-export default eventHandler<Promise<GetChatsListAPIResponse>>(async (event) => {
+export default eventHandler<Promise<ChatEntry[]>>(async (event) => {
     const client = await serverSupabaseClient<Database>(event);
+    const chats = await chats_get(client);
 
-    const { error, data } = await client
-        .from('chats')
-        .select<'*', ChatEntry>('*');
-
-    if (error == null) {
-        return { error, data };
-    } else {
-        return { error, data };
-    }
+    return chats;
 });

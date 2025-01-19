@@ -21,22 +21,22 @@ export const APP_SECTION_LINKS = (args: {
 }): HorizontalNavigationLink[][] => [
     [
         {
-            label: args.user_name,
-            avatar: { src: args.avatar_url },
-            to: '/content/profile',
+            label: 'Chats',
+            icon: 'i-ph-chats-fill',
+            to: '/content/chats',
         },
         {
             label: 'Friends',
             icon: 'i-ph-users-four-thin',
             to: '/content/friends',
         },
-        {
-            label: 'Chats',
-            icon: 'i-ph-chats-fill',
-            to: '/content/chats',
-        },
     ],
     [
+        {
+            label: args.user_name,
+            avatar: { src: args.avatar_url },
+            to: '/content/profile',
+        },
         {
             label: 'Logout',
             icon: 'i-uil-signout',

@@ -28,13 +28,9 @@
         if (user.value == null) {
             navigateTo('/signin');
         } else {
-            navigateTo('/content/empty');
+            navigateTo('/content/chats');
         }
     };
 
     watch(user, handle_navigate_next, { immediate: true });
-
-    onMounted(() => {
-        setTimeout(handle_navigate_next, 3000);
-    });
 </script>
