@@ -3,7 +3,7 @@
         :model-value="true"
         :fullscreen="true"
         :overlay="true"
-        @close="$router.push('/')"
+        @close="() => $router.push(localePath('/'))"
     >
         <div class="min-h-svh flex items-center justify-center">
             <UCard
@@ -23,7 +23,7 @@
                             variant="ghost"
                             icon="i-heroicons-x-mark-20-solid"
                             class="-my-1"
-                            @click="$router.push('/')"
+                            :to="localePath('/')"
                         />
                     </div>
                 </template>
@@ -91,6 +91,8 @@
     const { auth } = useSupabaseClient();
     const email = ref<string>('');
 
+    const localePath = useLocalePath();
+
     const handle_oauth_signin = (provider: Provider) =>
         handle_signin((origin) =>
             auth.signInWithOAuth({
@@ -103,7 +105,9 @@
         handle_signin((origin) =>
             auth.signInWithOtp({
                 email: email.value,
-                options: { emailRedirectTo: `${origin}/confirm` },
+                options: {
+                    emailRedirectTo: `${origin}/confirm`,
+                },
             }),
         );
 

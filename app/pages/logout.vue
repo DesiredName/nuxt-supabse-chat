@@ -5,11 +5,13 @@
 <script setup lang="ts">
     const { auth } = useSupabaseClient();
     const userStore = useUserStore();
+    const localePath = useLocalePath();
+    const cookie = useCookieLocale();
 
     Promise.allSettled([
         auth.signOut({ scope: 'local' }),
         userStore.clear(),
     ]).finally(() => {
-        navigateTo('/');
+        navigateTo(localePath('/' + cookie.value));
     });
 </script>

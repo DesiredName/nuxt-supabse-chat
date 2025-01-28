@@ -1,6 +1,5 @@
 <template>
     <div>
-        <div>Chats</div>
         <div>
             {{ chatsStore.chats }}
         </div>

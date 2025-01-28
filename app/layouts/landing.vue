@@ -1,3 +1,5 @@
 <template>
-    <div><slot /></div>
+    <PageStrucutre>
+        <slot />
+    </PageStrucutre>
 </template>

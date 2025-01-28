@@ -8,7 +8,6 @@
 
 <script setup lang="ts">
     import { APP_SECTION_LINKS } from '../constants';
-
     const { user } = useUserStore();
     const section_links = APP_SECTION_LINKS({
         user_name: user?.user_metadata?.user_name,

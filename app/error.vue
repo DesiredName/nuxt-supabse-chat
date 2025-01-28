@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>An error occured! Sorry about that...</h1>
-        <NuxtLink to="#" @click="handle_error_and_redirect"
+        <NuxtLink to="/" @click="handle_error_and_redirect"
             >Go back home</NuxtLink
         >
     </div>
