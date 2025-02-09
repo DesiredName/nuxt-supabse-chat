@@ -39,13 +39,15 @@ export const LANDING_SECTIONS_DATA = (): Record<
     };
 };
 
-export const APP_SECTION_LINKS = (args: {
-    avatar_url: string;
-    user_name: string;
-}): HorizontalNavigationLink[][] => {
+export const APP_SECTION_LINKS = (): ComputedRef<
+    HorizontalNavigationLink[][]
+> => {
     const i18n = useI18n();
 
-    return [
+    const userStore = useUserStore();
+    const { original_displayed_name } = storeToRefs(userStore);
+
+    return computed(() => [
         [
             {
                 label: i18n.t('generic.chats'),
@@ -60,9 +62,9 @@ export const APP_SECTION_LINKS = (args: {
         ],
         [
             {
-                label: args.user_name,
-                avatar: { src: args.avatar_url },
-                to: '/content/profile',
+                label: original_displayed_name.value,
+                icon: 'i-ph-user',
+                to: '/content/my_profile',
             },
             {
                 label: i18n.t('generic.logout'),
@@ -70,5 +72,5 @@ export const APP_SECTION_LINKS = (args: {
                 to: '/logout',
             },
         ],
-    ];
+    ]);
 };

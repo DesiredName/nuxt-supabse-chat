@@ -17,9 +17,43 @@
 </template>
 
 <script setup lang="ts">
+    import type { LANDING_SECTIONS } from '~/constants';
     import { LANDING_SECTIONS_DATA } from '~/constants';
 
     const sections_list = LANDING_SECTIONS_DATA();
+
+    onMounted(() => {
+        document.addEventListener('scrollend', set_anchors);
+        document.addEventListener('resize', set_anchors);
+    });
+
+    function set_anchors() {
+        const window_bounds = window.visualViewport;
+
+        if (window_bounds == null) {
+            return;
+        }
+
+        for (const section_name in sections_list) {
+            const section =
+                sections_list[section_name as keyof typeof LANDING_SECTIONS];
+            const html_element = document.getElementById(section.id);
+
+            if (html_element == null) {
+                continue;
+            }
+
+            const bounds = html_element.getBoundingClientRect();
+            const is_selected =
+                bounds.top === 0 || bounds.bottom - window.innerHeight === 0;
+
+            if (is_selected) {
+                window.location.href = '#' + section.id;
+
+                return;
+            }
+        }
+    }
 </script>
 
 <style module>
