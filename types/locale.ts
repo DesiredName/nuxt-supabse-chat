@@ -5,6 +5,7 @@ export type LocaleData = {
         home: string;
         features: string;
         contacts: string;
+        feature_boxes: Record<string, { title: string; description: string }>;
     };
     generic: {
         friends: string;

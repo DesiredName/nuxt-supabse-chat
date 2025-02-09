@@ -3,6 +3,8 @@
 </template>
 
 <script setup lang="ts">
+    import type { Locale } from '#i18n';
+
     const { auth } = useSupabaseClient();
     const userStore = useUserStore();
     const localePath = useLocalePath();
@@ -12,6 +14,6 @@
         auth.signOut({ scope: 'local' }),
         userStore.clear(),
     ]).finally(() => {
-        navigateTo(localePath('/' + cookie.value));
+        navigateTo(localePath('/', cookie.value as Locale));
     });
 </script>

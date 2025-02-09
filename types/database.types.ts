@@ -131,24 +131,27 @@ export type Database = {
       }
       profiles: {
         Row: {
-          displayed_name: string
+          displayed_name: string | null
           id: string
           is_filled: boolean
           is_public: boolean
+          user_avatar: string | null
           user_id: string
         }
         Insert: {
-          displayed_name?: string
+          displayed_name?: string | null
           id?: string
           is_filled?: boolean
           is_public?: boolean
+          user_avatar?: string | null
           user_id: string
         }
         Update: {
-          displayed_name?: string
+          displayed_name?: string | null
           id?: string
           is_filled?: boolean
           is_public?: boolean
+          user_avatar?: string | null
           user_id?: string
         }
         Relationships: []
@@ -224,10 +227,11 @@ export type Database = {
       friends_get: {
         Args: Record<PropertyKey, never>
         Returns: {
-          displayed_name: string
+          displayed_name: string | null
           id: string
           is_filled: boolean
           is_public: boolean
+          user_avatar: string | null
           user_id: string
         }[]
       }
@@ -297,10 +301,11 @@ export type Database = {
       profile_get: {
         Args: Record<PropertyKey, never>
         Returns: {
-          displayed_name: string
+          displayed_name: string | null
           id: string
           is_filled: boolean
           is_public: boolean
+          user_avatar: string | null
           user_id: string
         }[]
       }
@@ -316,10 +321,11 @@ export type Database = {
           pattern: string
         }
         Returns: {
-          displayed_name: string
+          displayed_name: string | null
           id: string
           is_filled: boolean
           is_public: boolean
+          user_avatar: string | null
           user_id: string
         }[]
       }

@@ -1,4 +1,3 @@
-import type { HorizontalNavigationLink } from '#ui/types';
 import type { LandingSectionData } from '~~/types/landing_page';
 
 export enum LANDING_SECTIONS {
@@ -37,38 +36,4 @@ export const LANDING_SECTIONS_DATA = (): Record<
             is_active: () => route.hash === '#' + LANDING_SECTIONS.CONTACTS,
         },
     };
-};
-
-export const APP_SECTION_LINKS = (args: {
-    avatar_url: string;
-    user_name: string;
-}): HorizontalNavigationLink[][] => {
-    const i18n = useI18n();
-
-    return [
-        [
-            {
-                label: i18n.t('generic.chats'),
-                icon: 'i-ph-chats-fill',
-                to: '/content/chats',
-            },
-            {
-                label: i18n.t('generic.friends'),
-                icon: 'i-ph-users-four-thin',
-                to: '/content/friends',
-            },
-        ],
-        [
-            {
-                label: args.user_name,
-                avatar: { src: args.avatar_url },
-                to: '/content/profile',
-            },
-            {
-                label: i18n.t('generic.logout'),
-                icon: 'i-uil-signout',
-                to: '/logout',
-            },
-        ],
-    ];
 };
