@@ -19,7 +19,7 @@ export default defineNuxtConfig({
                 icon: 'i-cif-us',
             },
             {
-                code: 'cz',
+                code: 'cs',
                 language: 'cs-CZ',
                 file: 'cs.ts',
                 name: 'Czech',

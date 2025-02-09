@@ -5,14 +5,11 @@
 </template>
 
 <script setup lang="ts">
-    definePageMeta({
-        layout: 'landing',
-    });
-
     const user = useSupabaseUser();
 
     const handle_navigate_next = () => {
         const { query } = useRoute();
+        const userStore = useUserStore();
 
         if ('error_code' in query) {
             const error_code = query['error_code'] as string;
@@ -28,7 +25,14 @@
         if (user.value == null) {
             navigateTo('/signin');
         } else {
-            navigateTo('/content/chats');
+            userStore
+                .load_profile()
+                .then(() => {
+                    navigateTo('/content/chats');
+                })
+                .catch(() => {
+                    navigateTo('/logout');
+                });
         }
     };
 

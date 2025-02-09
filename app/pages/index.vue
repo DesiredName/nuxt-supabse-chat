@@ -43,64 +43,21 @@
         <section :id="sections_list.FEATURES.id" :class="$style.section">
             <div :class="$style['section-content']">
                 <div :class="$style.features">
-                    <div :class="$style.feature">
+                    <div
+                        v-for="index in 6"
+                        :key="index"
+                        :class="$style.feature"
+                    >
                         <div :class="$style['feature-title']">
-                            Fast & Reliable
+                            {{ $t(`landing.feature_boxes.f${index}.title`) }}
                         </div>
 
                         <div :class="$style['feature-content']">
-                            Experience lightning-fast message delivery with a
-                            high level of reliability for your daily chats.
-                        </div>
-                    </div>
-                    <div :class="$style.feature">
-                        <div :class="$style['feature-title']">
-                            Easy Communication
-                        </div>
-
-                        <div :class="$style['feature-content']">
-                            Find friends, join groups, share files and documents
-                            - all in one user-friendly interface.
-                        </div>
-                    </div>
-                    <div :class="$style.feature">
-                        <div :class="$style['feature-title']">
-                            Security First
-                        </div>
-
-                        <div :class="$style['feature-content']">
-                            End-to-end encryption ensures that your private
-                            conversations stay just that – private.
-                        </div>
-                    </div>
-                    <div :class="$style.feature">
-                        <div :class="$style['feature-title']">
-                            Customizable Themes
-                        </div>
-
-                        <div :class="$style['feature-content']">
-                            Make {{ app.name }} yours with fully customizable
-                            themes and layouts to match your personal style.
-                        </div>
-                    </div>
-                    <div :class="$style.feature">
-                        <div :class="$style['feature-title']">
-                            Cross-Platform
-                        </div>
-
-                        <div :class="$style['feature-content']">
-                            Chat on any device. We support all major platforms:
-                            desktop, mobile, and web.
-                        </div>
-                    </div>
-                    <div :class="$style.feature">
-                        <div :class="$style['feature-title']">
-                            Seamless Integration
-                        </div>
-
-                        <div :class="$style['feature-content']">
-                            Easily integrate with other apps and services,
-                            making your workflow smoother and more efficient.
+                            {{
+                                $t(
+                                    `landing.feature_boxes.f${index}.description`,
+                                )
+                            }}
                         </div>
                     </div>
                 </div>
@@ -129,10 +86,6 @@
     } = useRuntimeConfig();
 
     const localePath = useLocalePath();
-
-    definePageMeta({
-        layout: 'landing',
-    });
 
     useHead({
         htmlAttrs: {
@@ -165,7 +118,6 @@
     .features {
         @apply grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 auto-rows-auto gap-4;
     }
-
     .feature {
         @apply p-2 max-w-96 sm:px-4 sm:py-6 sm:border-2 sm:rounded-md sm:shadow-lg sm:shadow-slate-300;
     }
